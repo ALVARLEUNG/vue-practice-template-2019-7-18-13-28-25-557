@@ -12,7 +12,7 @@
         props: ['calculate'],
         data() {
             return {
-                number: 0
+                number: 8
             };
         },
         methods: {
@@ -24,6 +24,9 @@
                 this.number--;
                 this.$emit('calculate', -1)
             }
+        },
+        mounted() {
+            this.$emit('calculate', 8)
         }
     }
 
