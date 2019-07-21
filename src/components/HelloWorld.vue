@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
-        <el-input type="number" placeholder="请输入数字" v-model="inputNumber"></el-input>
-        <div v-for="n in parseInt(counterNumber)" :key="n">
+        <el-input placeholder="请输入数字" v-model.number="inputNumber"></el-input>
+        <div v-for="n in inputNumber" :key="n">
             <CounterGroup v-on:calculate="calculate"></CounterGroup>
         </div>
         <el-input v-model="totalCount"></el-input>
@@ -16,8 +16,7 @@
             return {
                 inputNumber: '',
                 totalCount: 0,
-                counterNumber: 0
-                // length: parseInt(this.inputNumber)
+                counterNumber: []
             };
         },
         components: {
@@ -33,12 +32,9 @@
 
           }
         },
-        mounted() {
-          this.counterNumber = this.inputNumber;
-        },
         watch: {
-            inputNumber (newCount) {
-              return this.counterNumber = newCount;
+            inputNumber () {
+                this.totalCount = 0;
             }
         }
         }
