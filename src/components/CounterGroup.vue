@@ -27,6 +27,9 @@
         },
         mounted() {
             this.$emit('calculate', 8)
+        },
+        destroyed() {
+            this.$emit('calculate', -this.number)
         }
     }
 

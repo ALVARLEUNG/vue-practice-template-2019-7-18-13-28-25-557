@@ -31,12 +31,12 @@
               this.totalCount +=number;
 
           }
-        },
-        watch: {
-            inputNumber () {
-                this.totalCount = 0;
-            }
         }
+        // watch: {
+        //     inputNumber () {
+        //         this.totalCount = 0;
+        //     }
+        // }
         }
 </script>
 
