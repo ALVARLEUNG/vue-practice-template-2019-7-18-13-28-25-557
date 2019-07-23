@@ -1,31 +1,28 @@
 <template>
     <div class="hello">
-        <el-input placeholder="请输入数字" v-model.number="inputNumber"></el-input>
-        <div v-for="n in inputNumber" :key="n">
+        <InputBar></InputBar>
+        <div v-for="n in this.$store.state.inputNumber" :key="n">
             <CounterGroup></CounterGroup>
         </div>
-        <el-input v-model="this.$store.state.count"></el-input>
+       <FooterBar></FooterBar>
     </div>
 </template>
 
 <script>
     import CounterGroup from './CounterGroup.vue'
+    import InputBar from './InputBar.vue'
+    import FooterBar from './FooterBar.vue'
 
     export default {
-        data() {
-            return {
-                inputNumber: 0
-            };
-        },
         components: {
-            CounterGroup
+            CounterGroup,
+            InputBar,
+            FooterBar
         },
         name: 'HelloWorld',
         props: {
             msg: String
-        },
-        mounted() {
-           this.totalCount = this.$store.state.count;       }
+        }
     }
 </script>
 
