@@ -1,10 +1,15 @@
 <template>
-    <el-input v-model="this.$store.state.count"></el-input>
+    <el-input v-model="cool"></el-input>
 </template>
 
 <script>
     export default {
-        name: "FooterBar"
+        name: "FooterBar",
+        computed: {
+            cool (){
+                return this.$store.getters.result;
+            }
+        }
     }
 </script>
 
