@@ -9,27 +9,23 @@
 <script>
     export default {
         name: "CounterGroup",
-        props: ['calculate'],
         data() {
             return {
-                number: 8
+                number: 0
             };
         },
         methods: {
             add() {
                 this.number++;
-               this.$emit('calculate', 1)
+                this.$store.commit('add');
             },
             minus() {
                 this.number--;
-                this.$emit('calculate', -1)
+                this.$store.commit('minus',1);
             }
         },
-        mounted() {
-            this.$emit('calculate', 8)
-        },
         destroyed() {
-            this.$emit('calculate', -this.number)
+            this.$store.commit('minus', this.number)
         }
     }
 

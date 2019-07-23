@@ -2,9 +2,9 @@
     <div class="hello">
         <el-input placeholder="请输入数字" v-model.number="inputNumber"></el-input>
         <div v-for="n in inputNumber" :key="n">
-            <CounterGroup v-on:calculate="calculate"></CounterGroup>
+            <CounterGroup></CounterGroup>
         </div>
-        <el-input v-model="totalCount"></el-input>
+        <el-input v-model="this.$store.state.count"></el-input>
     </div>
 </template>
 
@@ -14,9 +14,7 @@
     export default {
         data() {
             return {
-                inputNumber: '',
-                totalCount: 0,
-                counterNumber: []
+                inputNumber: 0
             };
         },
         components: {
@@ -26,18 +24,9 @@
         props: {
             msg: String
         },
-        methods: {
-          calculate (number) {
-              this.totalCount +=number;
-
-          }
-        }
-        // watch: {
-        //     inputNumber () {
-        //         this.totalCount = 0;
-        //     }
-        // }
-        }
+        mounted() {
+           this.totalCount = this.$store.state.count;       }
+    }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
